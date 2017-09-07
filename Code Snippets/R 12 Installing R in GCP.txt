@@ -1,0 +1,27 @@
+which R
+sudo -i
+yum install -y R
+R
+install.packages("Rserve")
+library("Rserve")
+q()
+vi /etc/Rserv.conf
+i
+remote enable
+esc
+:wq
+chmod +r /etc/Rserv.conf
+adduser ruser
+vi /home/ruser/Rstart.sh
+i
+cd /usr/bin
+pgrep -u ruser -f "Rserve --RS-port 30020" || ./R CMD Rserve --RS-port 30020 --no-save --RS-encoding "utf8"
+esc
+:wq
+chmod +x /home/ruser/Rstart.sh
+crontab -e
+i
+*/2 * * * * /home/ruser/Rstart.sh 1> /dev/null 2> /home/ruser/Rstart.err
+Esc
+:wq
+pgrep -f "Rserve --RS-port 30020"
