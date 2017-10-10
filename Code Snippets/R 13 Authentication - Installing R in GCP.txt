@@ -1,0 +1,17 @@
+adduser ruser
+
+vi /home/ruser/passwordfile
+i
+myRserveUserName myRservePW
+esc
+:wq
+
+vi /etc/Rserv.conf
+i
+remote enable
+auth required
+plaintext disable
+pwdfile /home/ruser/passwordfile
+esc
+:wq
+chmod +r /etc/Rserv.conf

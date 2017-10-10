@@ -82,7 +82,7 @@ INSERT INTO "DATA" VALUES (50,6.3,2.3,4.4,1.3);
 INSERT INTO "PARAMS" VALUES ('CLUSTERS',3);
 
 -- call : results inline
-CALL "R_CLUSTER" ("DATA", "PARAMS", ?);
+--CALL "R_CLUSTER" ("DATA", "PARAMS", ?);
 
 -- call : results in table
 TRUNCATE TABLE "RESULTS";
